@@ -1,12 +1,14 @@
 <?php
-$server = "localhost";
+$host = "localhost";
 $user = "root";
-$password = "";
-$dbname = "db_akademik";
+$pass = "";
+$db   = "db_akademik";
 
-$db = mysqli_connect($server, $user, $password, $dbname);
+$koneksi = mysqli_connect($host, $user, $pass, $db);
 
-if (!$db) {
-    die("Gagal terhubung: " . mysqli_connect_error());
+if (!$koneksi) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
+
+mysqli_set_charset($koneksi, "utf8");
 ?>
