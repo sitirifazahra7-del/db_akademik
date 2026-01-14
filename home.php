@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Proteksi halaman: Jika belum login, tendang ke login.php
+
 if (!isset($_SESSION['login'])) {
     header("Location: login.php");
     exit;
@@ -9,7 +9,7 @@ if (!isset($_SESSION['login'])) {
 
 include "koneksi.php";
 
-// Menghitung data secara dinamis dari tabel yang Anda miliki
+
 $query_mhs = mysqli_query($koneksi, "SELECT * FROM mahasiswa");
 $jml_mahasiswa = mysqli_num_rows($query_mhs);
 

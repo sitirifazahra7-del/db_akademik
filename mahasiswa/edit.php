@@ -32,7 +32,7 @@ $prodi = mysqli_query($koneksi, "SELECT * FROM program_studi");
 
   <form action="update.php" method="post">
 
-    <!-- PK -->
+
     <input type="hidden" name="nim_lama" value="<?= $mhs['nim']; ?>">
 
     <div class="mb-3">
@@ -45,7 +45,7 @@ $prodi = mysqli_query($koneksi, "SELECT * FROM program_studi");
       <input type="text" name="nama_mhs" value="<?= $mhs['nama_mhs']; ?>" class="form-control">
     </div>
 
-    <!-- TAMBAHAN -->
+    
     <div class="mb-3">
       <label>Tanggal Lahir</label>
       <input type="date" name="tgl_lahir" value="<?= $mhs['tgl_lahir']; ?>" class="form-control">
@@ -55,7 +55,7 @@ $prodi = mysqli_query($koneksi, "SELECT * FROM program_studi");
       <label>Alamat</label>
       <textarea name="alamat" class="form-control" rows="3"><?= $mhs['alamat']; ?></textarea>
     </div>
-    <!-- END TAMBAHAN -->
+    
 
     <div class="mb-3">
       <label>Program Studi</label>

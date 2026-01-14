@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "koneksi.php"; // Pastikan file ini ada di folder yang sama
+require "koneksi.php"; 
 
 if (isset($_SESSION['login'])) {
     header("Location: index.php");
@@ -8,22 +8,22 @@ if (isset($_SESSION['login'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Mengambil input dan mencegah SQL Injection
+   
     $email    = mysqli_real_escape_string($koneksi, $_POST['email']);
     $password = $_POST['password'];
 
-    // Query mencari user berdasarkan email saja dulu
+    
     $query  = "SELECT * FROM pengguna WHERE email = '$email'";
     $result = mysqli_query($koneksi, $query);
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         
-        // VERSI A: Jika password di database menggunakan MD5
+    
         if (md5($password) === $row['password']) {
             $_SESSION['login'] = true;
-            $_SESSION['id']    = $row['id'];   // Sesuai kolom 1
-            $_SESSION['nama']  = $row['nama']; // Sesuai kolom 4
+            $_SESSION['id']    = $row['id'];   
+            $_SESSION['nama']  = $row['nama']; 
             $_SESSION['email'] = $row['email'];
             
             header("Location: index.php");

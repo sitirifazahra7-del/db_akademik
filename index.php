@@ -1,6 +1,6 @@
 <?php
 session_start();
-// PERBAIKAN: Hilangkan 'auth/' karena file login.php ada di root
+
 if (!isset($_SESSION['login'])) {
     header("Location: login.php"); 
     exit;
@@ -8,7 +8,7 @@ if (!isset($_SESSION['login'])) {
 
 include "koneksi.php";
 
-// hitung data
+
 $jumlah_mahasiswa = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM mahasiswa"));
 $jumlah_prodi     = mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM program_studi"));
 ?>
